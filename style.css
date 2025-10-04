@@ -56,6 +56,39 @@ nav .right a:last-child{
 nav.right a span{
     margin-left: 5px;
 }
+/*SECTION 1 : HERO*/
+.hero-section {  
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    margin: 50px 0;
+    align-items: center;
+    gap : 40px ;
+}
+
+.hero-section .text {
+    flex:5;
+}
+
+.hero-section .text h2 {
+    font-size: 45px;
+}
+
+.hero-section .text.links{
+    margin-top: 25px;
+}
+ 
+.hero-section .text.links a{
+    display: inline-block;
+    padding: 5px 10px;
+    border: 2px solid var(--link-color); 
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.hero-section .headshot {
+    flex: 2;
+}
 
 @media(max-width: 600px){
     /* NAVBAR */
