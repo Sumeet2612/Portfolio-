@@ -1,123 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <!-- Nav Section -->
-     <nav>
-        <div class ="left">
-            <a href ="/">Sumeet Kumar Raj </a>
+
+  <!-- Nav Section -->
+  <nav>
+    <div class="left">
+      <a href="/">Sumeet Kumar Raj</a>
+    </div>
+
+    <div class="right">
+      <a href="https://github.com/Sumeet2612" target="_blank" rel="noopener no-referrer">
+        <i class="fa-brands fa-github"></i><span>Github</span>
+      </a>
+      <a href="https://www.linkedin.com/in/sumeet-kumar-raj-a10b441a5/" target="_blank" rel="noopener no-referrer">
+        <i class="fa-brands fa-linkedin"></i><span>Linkedin</span>
+      </a>
+      <a href="mailto:sumeetkumarraj2612@gmail.com">
+        <i class="fa-solid fa-envelope"></i><span>E-mail</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Section: Hero -->
+    <section class="hero-section">
+      <div class="text">
+        <h2>Hi, I'm Sumeet Kumar Raj 👋</h2>
+        <p>
+          I’m a 3rd-year engineering student passionate about technology. I’m currently sharpening my skills in Data Structures and Algorithms using C++, while building a strong foundation in web development with HTML, CSS, and JavaScript. My future goals include mastering the MERN stack and Machine Learning.
+        </p>
+        <div class="links">
+          <a href="#Skills"><i class="fa-solid fa-code"></i><span>Skills</span></a>
+          <a href="#Projects"><i class="fa-solid fa-diagram-project"></i></i><span>Projects</span></a>
+          <a href="#Contact"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
         </div>
-        
-        <div class ="right">
-            <a href="https://github.com/Sumeet2612" target="_blank" rel="noopener no-referrer">
-                <i class="fa-brands fa-github"></i>
-                <span>Github</span>
-        </a>
+      </div>
 
-        <a href="https://www.linkedin.com/in/sumeet-kumar-raj-a10b441a5/" target="_blank" rel="noopenerno-referrer">
-            <i class="fa-brands fa-linkedin"></i>
-            <span>Linkedin</span>
-        </a>
+      <div class="headshot">
+        <img src="headshot12.jpg" alt="Sumeet Headshot">
+      </div>
+    </section>
 
-        <a href="mailto:sumeetkumarraj2612@gmail.com">
-            <i class="fa-solid fa-envelope"></i>
-            <span>E-mail</span>
-        </a>
+    <!-- Section: Skills -->
+    <section id="Skills" class="skills-section">
+      <h2>Skills</h2>
+      <p>
+            <ul>💻 Programming Languages: Proficient in C++, Python, and JavaScript, with strong problem-solving abilities.</ul></li>
+            <ul>🌐 Web Development: Skilled in building responsive and interactive web applications using HTML, CSS, and JavaScript. </ul></li>
+            <ul>⚙️ Tools & Platforms:Hands-on experience with Git and GitHub for version control and collaborative development. </ul></li>
+            <ul>📚 Other Skills:Strong foundation in Data Structures and Algorithms (DSA), enabling efficient problem-solving and logical reasoning. </ul></li>
+      </p>
+      <div class="cells">
+        <div class="cell">
+          <img src="icons8-html-5-48.png" alt="HTML logo">
+          <span>HTML</span>
         </div>
-     </nav>
+        <div class="cell">
+          <img src="icons8-css-logo-48.png" alt="CSS logo">
+          <span>CSS</span>
+        </div>
+        <div class="cell">
+          <img src="Javasscript.png" alt="JavaScript logo">
+          <span>JavaScript</span>
+        </div>
+        <div class="cell">
+          <img src="icons8-nodejs-48.png" alt="Node.js logo">
+          <span>Node.js</span>
+        </div>
+        </div>
+      </div>
+    </section>
 
-     <main> 
-        <!--Section : Hero -->
-        <section class="hero-section">
-            <div class="text">
-                <h2>Hi, I'm Sumeet Kumar Raj</h2>
-                <p>I’m Sumeet Kumar Raj, a 3rd‑year engineering student passionate about technology. I’m currently sharpening my skills in Data Structures and Algorithms using C++, while building a strong foundation in web development with HTML, CSS, and JavaScript. My future goals include mastering the MERN stack and Machine Learning.
-                </p>
-                <div class="links"> 
-                    <a href="#Skills">
-                        <i class="fa-solid fa-code"></i>
-                        <span>Skills</span>
-                    </a>
-                    <a href="#Testimony">
-                        <i class="fa-solid fa-quote-left"></i>
-                        <span>Testimony</span>
-                    </a>
-                    <a href="#Contact">
-                        <i class="fa-solid fa-envelope"></i>
-                        <span>Contact</span>
-                    </a>
-                </div>
-            </div>
+    <!-- Section: Testimony -->
+    <section id="Projects"></section>
 
-            <div class="headshot">
-                <img src="headshot12.jpg" alt="Sumeet Headshot ">
-            </div>
+    <!-- Section: Contact -->
+    <section id="Contact" class="contact-section">
+        <h2>Contact Me</h2>
+        <div class="text">
+            <p>If you'd like to get in touch, feel free to reach out via email or connect with me on LinkedIn or GitHub. I'm always open to discussing new opportunities, collaborations, or just having a chat about technology!</p>
+        </div>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
         </section>
+    </div>
+    </section>
 
-        <!--Section : Skills -->
-        <section id="Skills">
-            <h2>Skills</h2>
-            <div class="text">
-                <p>
-                    🧠 Technical Skills
-                    <li>
-                        <ul>💻 Programming Languages:  C++, Python, and JavaScript.</ul>
-                        <ul>⚙️ Tools & Platforms: Hands-on experience with Git and GitHub for version control and collaborative development.</ul>
-                        <ul>🌐 Web Development: Proficient in HTML, CSS, and JavaScript for building responsive and user-friendly web applications. Familiar with front-end frameworks and libraries to enhance web development efficiency.</ul>
-                        <ul>📚 Other Skills: Strong foundation in Data Structures and Algorithms (DSA), enabling efficient problem-solving and logical reasoning.</ul>
-                    </li>
-                </p>
-            </div>
+  </main>
 
-            <div class = "cells">
-                <div class="cell"></div>
-                <img src="icons8-html-5-48.png" alt="html logo">
-                <span>HTML</span>
-            </div>
-
-            <div class = "cells">
-                <div class="cell"></div>
-                <img src="icons8-css-logo-48.png" alt="css logo">
-                <span>CSS</span>
-
-            </div>
-
-            <div class = "cells">
-                <div class="cell"></div>
-                <img src="Javasscript.png" alt="javascript logo">
-                <span>JavaScript</span>
-            </div>
-
-            <div class = "cells">
-                <div class="cell"></div>
-                <img src="icons8-nodejs-48.png" alt="Node logo">
-                <span>Node</span>
-            </div>
-
-            <div class = "cells">
-                <div class="cell"></div>
-                <img src="icons8-python-48.png" alt="python logo">
-                <span>Python</span>
-        </section>
-
-
-        <!--Section : Testimony -->
-        <section id="Testimony"></section>
-
-        <!--Section : Contact -->
-        <section id="Contact"></section>
-
-        </main>
-    
 </body>
 </html>
