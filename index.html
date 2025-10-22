@@ -91,21 +91,29 @@
     <section id="Projects"></section>
 
     <!-- Section: Contact -->
-    <section id="Contact" class="contact-section">
-        <h2>Contact Me</h2>
-        <div class="text">
-            <p>If you'd like to get in touch, feel free to reach out via email or connect with me on LinkedIn or GitHub. I'm always open to discussing new opportunities, collaborations, or just having a chat about technology!</p>
-        </div>
-        <form id="contact-form">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
-          
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
-          <button type="submit">Send Message</button>
-</form>
+   <!-- Section: Contact -->
+<section id="Contact" class="contact-section">
+  <h2>Contact Me</h2>
+  <p class="contact-intro">
+    Feel free to reach out if you'd like to collaborate, discuss new opportunities, or simply connect!
+  </p>
+
+  <div class="contact-container">
+    <form id="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
 
 <script>
   document.getElementById('contact-form').addEventListener('submit', function(event) {

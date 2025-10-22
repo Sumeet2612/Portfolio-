@@ -339,3 +339,125 @@ body.dark .theme-btn {
   color: #f5f5f5;
 }
 
+
+
+
+
+/* 🌟 Contact Section */
+.contact-section {
+  padding: 80px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: var(--text-color, #222);
+}
+
+.contact-intro {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: var(--text-muted, #555);
+  line-height: 1.6;
+}
+
+/* 🌫️ Glassmorphic Container */
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 📝 Form Labels */
+#contact-form label {
+  display: block;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-color, #111);
+  margin-bottom: 6px;
+}
+
+/* ✏️ Inputs and Textarea */
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.25);
+  color: #111;
+  transition: border 0.3s ease, background 0.3s ease;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: #666;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* 🚀 Submit Button */
+#contact-form button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+#contact-form button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* 🌙 Dark Mode */
+body.dark .contact-container {
+  background: rgba(20, 20, 20, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.05);
+}
+
+body.dark #contact-form label {
+  color: #eee;
+}
+
+body.dark #contact-form input,
+body.dark #contact-form textarea {
+  background: rgba(40, 40, 40, 0.6);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark #contact-form input:focus,
+body.dark #contact-form textarea:focus {
+  border-color: #00aaff;
+}
+
+body.dark #contact-form button {
+  background-color: #00aaff;
+}
+
+body.dark #contact-form button:hover {
+  background-color: #0088cc;
+}
+
