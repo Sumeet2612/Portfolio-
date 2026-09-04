@@ -1,0 +1,51 @@
+﻿# Node dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+out/
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+
+# Vite / tooling caches
+.vite/
+.cache/
+*.cache
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test coverage
+coverage/
+.jest/
+
+# Package tarballs
+*.tgz
+
+# Misc
+.DS_Store
+
