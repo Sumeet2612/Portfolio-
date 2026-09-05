@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { motion } from 'framer-motion';
-import { Mail, BriefcaseBusiness as Linkedin, Code2 as Github, Send, CheckCircle2, AlertCircle, Loader2, ArrowUpRight } from 'lucide-react';
+import { Mail, Link, GitFork, Code, Send, CheckCircle2, AlertCircle, Loader2, ArrowRight } from 'lucide-react';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -46,28 +45,6 @@ export const Contact = () => {
 
     setStatus({ submitting: true, submitted: false, error: null });
 
-    /* 
-      ======================================================
-      CONFIGURATION POINT FOR EMAIL SERVICES (Formspree/EmailJS)
-      ======================================================
-      When integrating a backend email service, update portfolioData.personal.contactFormEndpoint:
-      
-      try {
-        const response = await fetch(portfolioData.personal.contactFormEndpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
-        });
-        if (response.ok) {
-          setStatus({ submitting: false, submitted: true, error: null });
-          setFormData({ name: '', email: '', subject: '', message: '' });
-        }
-      } catch (err) {
-        setStatus({ submitting: false, submitted: false, error: 'Failed to send message. Please email directly.' });
-      }
-    */
-
-    // Client-side simulation for smooth feedback
     setTimeout(() => {
       setStatus({ submitting: false, submitted: true, error: null });
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -75,223 +52,177 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-14">
-        <h2 className="text-xs font-semibold uppercase tracking-wider text-brand-500 dark:text-brand-400 mb-2">
-          GET IN TOUCH
-        </h2>
-        <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
-          Let's Work Together
-        </h3>
-        <p className="text-sm text-slate-600 dark:text-slate-400 mt-3">
-          I'm currently open to Software Engineering internships, Frontend Developer opportunities, Full-Stack roles, and technical collaborations.
-        </p>
-      </div>
+    <section id="contact" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-slate-200 dark:border-[#1D2939]">
+      <div className="space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold tracking-tight text-[#0F172A] dark:text-[#F4F7FA]">
+            Let's build something.
+          </h2>
+          <p className="text-sm text-slate-600 dark:text-[#98A2B3] mt-1">
+            I'm currently open to software engineering, frontend and full-stack opportunities.
+          </p>
+        </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 max-w-6xl mx-auto items-start">
-        {/* Left Column: Direct Contact Details */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="lg:col-span-5 space-y-6"
-        >
-          <div className="glass-card p-6 rounded-2xl space-y-6">
-            <h4 className="font-bold text-lg text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-3">
-              Direct Contact Details
-            </h4>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          {/* Left Column: Direct Links */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="editorial-card p-5 space-y-4">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-[#667085]">
+                Direct Links
+              </h3>
 
-            {/* Email Directly */}
-            <a
-              href={portfolioData.social.email}
-              className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800 hover:border-brand-500/40 transition-all group"
-            >
-              <div className="p-3 rounded-xl bg-brand-500/10 text-brand-500 group-hover:scale-105 transition-transform">
-                <Mail className="w-5 h-5" />
-              </div>
-              <div>
-                <span className="text-[11px] font-semibold uppercase text-slate-400">EMAIL DIRECTLY</span>
-                <p className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors">
-                  {portfolioData.personal.email}
-                </p>
-              </div>
-            </a>
+              <div className="space-y-3 text-xs sm:text-sm">
+                <a
+                  href={portfolioData.social.email}
+                  className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-[#0D121C] text-slate-700 dark:text-[#98A2B3] hover:text-[#0F172A] dark:hover:text-[#F4F7FA] transition-colors"
+                >
+                  <Mail className="w-4 h-4 text-[#0284C7] dark:text-[#22C7E8] shrink-0" />
+                  <span className="truncate">{portfolioData.personal.email}</span>
+                </a>
 
-            {/* LinkedIn Profile */}
-            <a
-              href={portfolioData.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800 hover:border-brand-500/40 transition-all group"
-            >
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-xl bg-blue-500/10 text-blue-500 group-hover:scale-105 transition-transform">
-                  <Linkedin className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-[11px] font-semibold uppercase text-slate-400">LINKEDIN PROFILE</span>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors">
-                    Sumeet Kumar Raj
-                  </p>
-                </div>
-              </div>
-              <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-brand-500 transition-colors" />
-            </a>
+                <a
+                  href={portfolioData.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-[#0D121C] text-slate-700 dark:text-[#98A2B3] hover:text-[#0F172A] dark:hover:text-[#F4F7FA] transition-colors"
+                >
+                  <Link className="w-4 h-4 text-[#0284C7] dark:text-[#22C7E8] shrink-0" />
+                  <span>LinkedIn / sumeet-kumar-raj</span>
+                </a>
 
-            {/* GitHub Profile */}
-            <a
-              href={portfolioData.social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800 hover:border-brand-500/40 transition-all group"
-            >
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-xl bg-slate-900/10 dark:bg-slate-100/10 text-slate-900 dark:text-slate-100 group-hover:scale-105 transition-transform">
-                  <Github className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-[11px] font-semibold uppercase text-slate-400">GITHUB PROFILE</span>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors">
-                    @Sumeet2612
-                  </p>
-                </div>
+                <a
+                  href={portfolioData.social.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-[#0D121C] text-slate-700 dark:text-[#98A2B3] hover:text-[#0F172A] dark:hover:text-[#F4F7FA] transition-colors"
+                >
+                  <GitFork className="w-4 h-4 text-[#0284C7] dark:text-[#22C7E8] shrink-0" />
+                  <span>GitHub / Sumeet2612</span>
+                </a>
+
+                <a
+                  href={portfolioData.social.leetcode}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-[#0D121C] text-slate-700 dark:text-[#98A2B3] hover:text-[#0F172A] dark:hover:text-[#F4F7FA] transition-colors"
+                >
+                  <Code className="w-4 h-4 text-[#0284C7] dark:text-[#22C7E8] shrink-0" />
+                  <span>LeetCode / Sumeet2612</span>
+                </a>
               </div>
-              <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-brand-500 transition-colors" />
-            </a>
+            </div>
           </div>
-        </motion.div>
 
-        {/* Right Column: Contact Form */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="lg:col-span-7"
-        >
-          <form
-            onSubmit={handleSubmit}
-            className="glass-card p-6 sm:p-8 rounded-2xl space-y-5"
-            noValidate
-          >
-            <h4 className="font-bold text-lg text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-3">
-              Send a Message
-            </h4>
+          {/* Right Column: Contact Form */}
+          <div className="lg:col-span-7">
+            <form onSubmit={handleSubmit} className="editorial-card p-6 space-y-4" noValidate>
+              {status.submitted && (
+                <div className="p-3 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-[#22C55E] text-xs font-medium flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 shrink-0" />
+                  <span>Your message has been sent. I will get back to you soon!</span>
+                </div>
+              )}
 
-            {/* Success Banner */}
-            {status.submitted && (
-              <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold flex items-center gap-2 animate-in fade-in">
-                <CheckCircle2 className="w-4 h-4 shrink-0" />
-                <span>Thank you! Your message has been prepared. I will get back to you shortly.</span>
+              {status.error && (
+                <div className="p-3 rounded-md bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-xs font-medium flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
+                  <span>{status.error}</span>
+                </div>
+              )}
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label htmlFor="name" className="text-xs font-medium text-slate-700 dark:text-[#98A2B3]">
+                    Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your name"
+                    className={`w-full px-3 py-2 rounded-md bg-slate-50 dark:bg-[#0D121C] border text-xs text-[#0F172A] dark:text-[#F4F7FA] focus:outline-none focus:border-[#0284C7] dark:focus:border-[#22C7E8] transition-colors ${
+                      errors.name ? 'border-red-500' : 'border-slate-200 dark:border-[#1D2939]'
+                    }`}
+                  />
+                  {errors.name && <p className="text-[10px] text-red-500 mt-0.5">{errors.name}</p>}
+                </div>
+
+                <div className="space-y-1">
+                  <label htmlFor="email" className="text-xs font-medium text-slate-700 dark:text-[#98A2B3]">
+                    Email <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="your@email.com"
+                    className={`w-full px-3 py-2 rounded-md bg-slate-50 dark:bg-[#0D121C] border text-xs text-[#0F172A] dark:text-[#F4F7FA] focus:outline-none focus:border-[#0284C7] dark:focus:border-[#22C7E8] transition-colors ${
+                      errors.email ? 'border-red-500' : 'border-slate-200 dark:border-[#1D2939]'
+                    }`}
+                  />
+                  {errors.email && <p className="text-[10px] text-red-500 mt-0.5">{errors.email}</p>}
+                </div>
               </div>
-            )}
 
-            {/* Error Banner */}
-            {status.error && (
-              <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-xs font-semibold flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 shrink-0" />
-                <span>{status.error}</span>
-              </div>
-            )}
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {/* Name Input */}
-              <div className="space-y-1.5">
-                <label htmlFor="name" className="text-xs font-semibold text-slate-700 dark:text-slate-300">
-                  Your Name <span className="text-red-500">*</span>
+              <div className="space-y-1">
+                <label htmlFor="subject" className="text-xs font-medium text-slate-700 dark:text-[#98A2B3]">
+                  Subject
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
                   onChange={handleChange}
-                  placeholder="e.g. Alex Johnson"
-                  className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all ${
-                    errors.name ? 'border-red-500' : 'border-slate-200 dark:border-slate-700'
-                  }`}
+                  placeholder="Subject"
+                  className="w-full px-3 py-2 rounded-md bg-slate-50 dark:bg-[#0D121C] border border-slate-200 dark:border-[#1D2939] text-xs text-[#0F172A] dark:text-[#F4F7FA] focus:outline-none focus:border-[#0284C7] dark:focus:border-[#22C7E8] transition-colors"
                 />
-                {errors.name && <p className="text-[10px] text-red-500 mt-1">{errors.name}</p>}
               </div>
 
-              {/* Email Input */}
-              <div className="space-y-1.5">
-                <label htmlFor="email" className="text-xs font-semibold text-slate-700 dark:text-slate-300">
-                  Your Email <span className="text-red-500">*</span>
+              <div className="space-y-1">
+                <label htmlFor="message" className="text-xs font-medium text-slate-700 dark:text-[#98A2B3]">
+                  Message <span className="text-red-500">*</span>
                 </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  value={formData.message}
                   onChange={handleChange}
-                  placeholder="e.g. alex@example.com"
-                  className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all ${
-                    errors.email ? 'border-red-500' : 'border-slate-200 dark:border-slate-700'
+                  placeholder="Your message..."
+                  className={`w-full px-3 py-2 rounded-md bg-slate-50 dark:bg-[#0D121C] border text-xs text-[#0F172A] dark:text-[#F4F7FA] focus:outline-none focus:border-[#0284C7] dark:focus:border-[#22C7E8] transition-colors resize-none ${
+                    errors.message ? 'border-red-500' : 'border-slate-200 dark:border-[#1D2939]'
                   }`}
                 />
-                {errors.email && <p className="text-[10px] text-red-500 mt-1">{errors.email}</p>}
+                {errors.message && <p className="text-[10px] text-red-500 mt-0.5">{errors.message}</p>}
               </div>
-            </div>
 
-            {/* Subject Input */}
-            <div className="space-y-1.5">
-              <label htmlFor="subject" className="text-xs font-semibold text-slate-700 dark:text-slate-300">
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                placeholder="e.g. Internship Opportunity / Software Project"
-                className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all"
-              />
-            </div>
-
-            {/* Message Textarea */}
-            <div className="space-y-1.5">
-              <label htmlFor="message" className="text-xs font-semibold text-slate-700 dark:text-slate-300">
-                Message <span className="text-red-500">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Write your message here..."
-                className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all resize-none ${
-                  errors.message ? 'border-red-500' : 'border-slate-200 dark:border-slate-700'
-                }`}
-              />
-              {errors.message && <p className="text-[10px] text-red-500 mt-1">{errors.message}</p>}
-            </div>
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={status.submitting}
-              className="w-full py-3 rounded-xl bg-brand-500 hover:bg-brand-600 disabled:opacity-70 text-white font-semibold text-xs transition-colors shadow-xs flex items-center justify-center gap-2 cursor-pointer"
-            >
-              {status.submitting ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  Sending Message...
-                </>
-              ) : (
-                <>
-                  <Send className="w-4 h-4" />
-                  Send Message
-                </>
-              )}
-            </button>
-          </form>
-        </motion.div>
+              <button
+                type="submit"
+                disabled={status.submitting}
+                className="w-full py-2.5 rounded-md bg-[#0284C7] dark:bg-[#22C7E8] text-white dark:text-[#080B12] font-semibold text-xs transition-opacity hover:opacity-90 flex items-center justify-center gap-2 cursor-pointer"
+              >
+                {status.submitting ? (
+                  <>
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <span>Send Message</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   );
 };
+

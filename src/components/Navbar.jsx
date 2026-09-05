@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { portfolioData } from '../data/portfolioData';
-import { Sun, Moon, Code2 as Github, BriefcaseBusiness as Linkedin, Menu, X, Code2, ArrowUpRight } from 'lucide-react';
+import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
+
+const GithubIcon = ({ className = "w-3.5 h-3.5" }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+  </svg>
+);
 
 export const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
@@ -10,7 +16,6 @@ export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projects' },
@@ -18,7 +23,7 @@ export const Navbar = () => {
     { id: 'contact', label: 'Contact' },
   ];
 
-  const activeSection = useActiveSection(navItems.map(item => item.id), 120);
+  const activeSection = useActiveSection(['home', ...navItems.map(item => item.id)], 100);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +38,7 @@ export const Navbar = () => {
     setMobileMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80;
+      const offset = 72;
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
         top: elementPosition - offset,
@@ -43,31 +48,20 @@ export const Navbar = () => {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? 'glass-nav py-3 shadow-sm dark:shadow-slate-900/50'
-          : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+    <header className="sticky top-0 z-50 editorial-nav">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
           {/* Logo / Brand Name */}
           <a
             href="#home"
             onClick={(e) => scrollToSection(e, 'home')}
-            className="flex items-center gap-2 group font-semibold text-lg tracking-tight text-slate-900 dark:text-white"
+            className="font-bold text-sm sm:text-base tracking-tight text-[#0F172A] dark:text-[#F4F7FA] hover:text-[#0284C7] dark:hover:text-[#22C7E8] transition-colors"
           >
-            <div className="w-8 h-8 rounded-lg bg-brand-500/10 dark:bg-brand-500/20 border border-brand-500/30 flex items-center justify-center text-brand-500 group-hover:scale-105 transition-transform">
-              <Code2 className="w-4 h-4" />
-            </div>
-            <span>
-              Sumeet <span className="text-brand-500">Raj</span>
-            </span>
+            Sumeet Raj
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-slate-100/80 dark:bg-slate-900/80 p-1.5 rounded-full border border-slate-200/80 dark:border-slate-800/80 text-xs font-medium">
+          <nav className="hidden md:flex items-center gap-6 text-xs font-medium">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -75,25 +69,50 @@ export const Navbar = () => {
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(e) => scrollToSection(e, item.id)}
-                  className={`px-3.5 py-1.5 rounded-full transition-all duration-200 ${
+                  className={`transition-colors py-1 relative ${
                     isActive
-                      ? 'bg-white dark:bg-slate-800 text-brand-600 dark:text-brand-400 font-semibold shadow-xs'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                      ? 'text-[#0284C7] dark:text-[#22C7E8] font-semibold'
+                      : 'text-slate-600 dark:text-[#98A2B3] hover:text-[#0F172A] dark:hover:text-[#F4F7FA]'
                   }`}
                 >
                   {item.label}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#0284C7] dark:bg-[#22C7E8] rounded-full" />
+                  )}
                 </a>
               );
             })}
           </nav>
 
-          {/* Right Action Icons & Theme Toggle */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Theme Toggle Button */}
+          {/* Right Actions */}
+          <div className="flex items-center gap-3">
+            {/* GitHub Link */}
+            <a
+              href={portfolioData.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-slate-600 dark:text-[#98A2B3] hover:text-[#0F172A] dark:hover:text-[#F4F7FA] transition-colors px-2 py-1"
+            >
+              <GithubIcon className="w-3.5 h-3.5" />
+              <span>GitHub</span>
+            </a>
+
+            {/* Resume / Contact Action */}
+            <a
+              href="#contact"
+              onClick={(e) => scrollToSection(e, 'contact')}
+              className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded-md bg-[#0F172A] dark:bg-[#F4F7FA] text-white dark:text-[#080B12] hover:bg-slate-800 dark:hover:bg-white transition-colors"
+            >
+              <span>Resume</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </a>
+
+            {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-              className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-slate-200/60 dark:border-slate-800"
+              className="p-1.5 rounded-md text-slate-600 dark:text-[#98A2B3] hover:bg-slate-200/60 dark:hover:bg-[#1D2939] transition-colors cursor-pointer"
             >
               {theme === 'dark' ? (
                 <Sun className="w-4 h-4 text-amber-400" />
@@ -102,42 +121,11 @@ export const Navbar = () => {
               )}
             </button>
 
-            {/* Social Icons */}
-            <a
-              href={portfolioData.social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub Profile"
-              className="hidden sm:flex p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-slate-200/60 dark:border-slate-800"
-            >
-              <Github className="w-4 h-4" />
-            </a>
-            <a
-              href={portfolioData.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn Profile"
-              className="hidden sm:flex p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-slate-200/60 dark:border-slate-800"
-            >
-              <Linkedin className="w-4 h-4" />
-            </a>
-
-            {/* Resume Button */}
-            <a
-              href="#contact"
-              onClick={(e) => scrollToSection(e, 'contact')}
-              className="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-brand-500 hover:bg-brand-600 text-white transition-colors shadow-xs"
-            >
-              Contact Me
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
-
-            {/* Mobile Hamburger Menu Toggle */}
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle navigation menu"
-              aria-expanded={mobileMenuOpen}
-              className="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="md:hidden p-1.5 rounded-md text-slate-600 dark:text-[#98A2B3] hover:bg-slate-200/60 dark:hover:bg-[#1D2939]"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -145,10 +133,10 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden glass-nav mt-3 border-b border-slate-200 dark:border-slate-800 py-4 px-6 animate-in slide-in-from-top duration-200">
-          <nav className="flex flex-col gap-3">
+        <div className="md:hidden border-b border-slate-200 dark:border-[#1D2939] bg-[#FAFAFC] dark:bg-[#080B12] px-4 py-4 space-y-3">
+          <nav className="flex flex-col space-y-2">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -156,42 +144,39 @@ export const Navbar = () => {
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(e) => scrollToSection(e, item.id)}
-                  className={`text-sm font-medium py-2 px-3 rounded-lg transition-colors ${
+                  className={`text-sm font-medium py-1.5 px-2 rounded-md transition-colors ${
                     isActive
-                      ? 'bg-brand-500/10 text-brand-500 font-semibold'
-                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                      ? 'bg-slate-200/60 dark:bg-[#1D2939] text-[#0284C7] dark:text-[#22C7E8]'
+                      : 'text-slate-600 dark:text-[#98A2B3]'
                   }`}
                 >
                   {item.label}
                 </a>
               );
             })}
-            <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
-              <span className="text-xs text-slate-500 dark:text-slate-400">Connect:</span>
-              <div className="flex items-center gap-3">
-                <a
-                  href={portfolioData.social.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub Profile"
-                  className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-                >
-                  <Github className="w-4 h-4" />
-                </a>
-                <a
-                  href={portfolioData.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn Profile"
-                  className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-                >
-                  <Linkedin className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
           </nav>
+          <div className="pt-2 border-t border-slate-200 dark:border-[#1D2939] flex items-center justify-between text-xs text-slate-600 dark:text-[#98A2B3]">
+            <a
+              href={portfolioData.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:text-[#0F172A] dark:hover:text-[#F4F7FA]"
+            >
+              <GithubIcon className="w-4 h-4" />
+              GitHub
+            </a>
+            <a
+              href={portfolioData.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#0F172A] dark:hover:text-[#F4F7FA]"
+            >
+              LinkedIn
+            </a>
+          </div>
         </div>
       )}
     </header>
   );
 };
+

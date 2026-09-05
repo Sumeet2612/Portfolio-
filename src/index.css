@@ -5,16 +5,17 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
   
   body {
-    @apply transition-colors duration-300;
+    @apply bg-[#FAFAFC] dark:bg-[#080B12] text-[#0F172A] dark:text-[#F4F7FA] transition-colors duration-200 antialiased;
   }
 }
 
 /* Custom subtle scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -22,18 +23,15 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-300 dark:bg-slate-800 rounded-full hover:bg-slate-400 dark:hover:bg-slate-700 transition-colors;
+  @apply bg-slate-300 dark:bg-[#1D2939] rounded hover:bg-slate-400 dark:hover:bg-[#344054] transition-colors;
 }
 
-/* Glassmorphism utility */
-.glass-nav {
-  @apply bg-white/80 dark:bg-[#090D16]/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80;
+/* Clean Editorial Components */
+.editorial-card {
+  @apply bg-white dark:bg-[#101722] border border-slate-200 dark:border-[#1D2939] rounded-xl transition-all duration-200;
 }
 
-.glass-card {
-  @apply bg-white/70 dark:bg-slate-900/60 backdrop-blur-sm border border-slate-200 dark:border-slate-800/80 shadow-sm hover:shadow-md transition-all duration-300;
+.editorial-nav {
+  @apply bg-[#FAFAFC]/90 dark:bg-[#080B12]/90 backdrop-blur-md border-b border-slate-200 dark:border-[#1D2939];
 }
 
-.gradient-text {
-  @apply bg-gradient-to-r from-brand-500 via-cyan-400 to-emerald-400 bg-clip-text text-transparent;
-}

@@ -5,18 +5,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: {
-          400: '#22d3ee',
-          500: '#06b6d4',
-          600: '#0891b2',
+        midnight: {
+          bg: '#080B12',
+          surface: '#0D121C',
+          card: '#101722',
+          border: '#1D2939',
+          text: '#F4F7FA',
+          secondary: '#98A2B3',
+          muted: '#667085',
         },
-        'light-bg': '#f8fafc',
-        'dark-bg': '#090d16',
-        'light-text': '#0f172a',
-        'dark-text': '#f8fafc',
+        accent: {
+          cyan: '#22C7E8',
+          amber: '#F5A623',
+          green: '#22C55E',
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
       boxShadow: {
-        'glow-cyan': '0 0 24px rgba(6, 182, 212, 0.25)',
+        'subtle': '0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.12)',
       },
     },
   },

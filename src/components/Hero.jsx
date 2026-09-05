@@ -1,13 +1,18 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { motion } from 'framer-motion';
-import { ArrowDown, Code2 as Github, BriefcaseBusiness as Linkedin, Mail, Code } from 'lucide-react';
+import { ArrowRight, FileText } from 'lucide-react';
+
+const GithubIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+  </svg>
+);
 
 export const Hero = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80;
+      const offset = 72;
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
         top: elementPosition - offset,
@@ -17,119 +22,100 @@ export const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background Subtle Gradient Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-500/10 dark:bg-brand-500/15 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute top-1/3 right-10 w-[300px] h-[300px] bg-emerald-500/10 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+    <section id="home" className="pt-16 pb-20 sm:pt-24 sm:pb-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        {/* Left Column: Personal Intro */}
+        <div className="lg:col-span-7 space-y-6">
+          <div className="space-y-2">
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A] dark:text-[#F4F7FA]">
+              {portfolioData.personal.name}
+            </h1>
+            <p className="text-xl sm:text-2xl font-semibold text-[#0284C7] dark:text-[#22C7E8]">
+              {portfolioData.personal.role}
+            </p>
+          </div>
 
-      <div className="max-w-4xl mx-auto text-center space-y-8">
-        {/* Status Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 dark:bg-brand-500/15 border border-brand-500/20 text-brand-600 dark:text-brand-400 text-xs font-semibold tracking-wide"
-        >
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          {portfolioData.personal.statusBadge}
-        </motion.div>
-
-        {/* Greeting & Headline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="space-y-4"
-        >
-          <p className="text-sm sm:text-base font-semibold text-slate-500 dark:text-slate-400 tracking-widest uppercase">
-            HELLO, I'M
+          <p className="text-base text-slate-600 dark:text-[#98A2B3] leading-relaxed max-w-xl">
+            {portfolioData.personal.tagline}
           </p>
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            {portfolioData.personal.name}
-          </h1>
-          <h2 className="text-2xl sm:text-4xl font-bold gradient-text">
-            {portfolioData.personal.role}
-          </h2>
-        </motion.div>
 
-        {/* Description Copy */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal"
-        >
-          {portfolioData.personal.tagline}
-        </motion.p>
+          {/* Action CTAs */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#0284C7] dark:bg-[#22C7E8] text-white dark:text-[#080B12] font-semibold text-xs hover:opacity-90 transition-opacity cursor-pointer"
+            >
+              <span>View Projects</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
 
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-wrap items-center justify-center gap-4 pt-2"
-        >
-          <button
-            onClick={() => scrollToSection('projects')}
-            className="px-6 py-3 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-sm shadow-md hover:shadow-glow-cyan transition-all duration-200 flex items-center gap-2 group cursor-pointer"
-          >
-            View Projects
-            <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-          </button>
-          <button
-            onClick={() => scrollToSection('contact')}
-            className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 text-slate-900 dark:text-white font-semibold text-sm border border-slate-300 dark:border-slate-700/80 transition-all duration-200 cursor-pointer"
-          >
-            Let's Connect
-          </button>
-        </motion.div>
-
-        {/* Social Icons */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="pt-6 flex items-center justify-center gap-4 text-slate-600 dark:text-slate-400"
-        >
-          <a
-            href={portfolioData.social.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub Profile"
-            className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:text-brand-500 dark:hover:text-brand-400 hover:border-brand-500/40 transition-all"
-          >
-            <Github className="w-5 h-5" />
-          </a>
-          <a
-            href={portfolioData.social.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn Profile"
-            className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:text-brand-500 dark:hover:text-brand-400 hover:border-brand-500/40 transition-all"
-          >
-            <Linkedin className="w-5 h-5" />
-          </a>
-          {portfolioData.social.leetcode && (
             <a
-              href={portfolioData.social.leetcode}
+              href={portfolioData.social.github}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LeetCode Profile"
-              className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:text-brand-500 dark:hover:text-brand-400 hover:border-brand-500/40 transition-all flex items-center gap-1.5 text-xs font-semibold font-mono"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-300 dark:border-[#1D2939] text-[#0F172A] dark:text-[#F4F7FA] hover:bg-slate-100 dark:hover:bg-[#101722] font-semibold text-xs transition-colors"
             >
-              <Code className="w-5 h-5 text-amber-500" />
-              <span>LeetCode</span>
+              <GithubIcon className="w-4 h-4" />
+              <span>GitHub</span>
             </a>
-          )}
-          <a
-            href={portfolioData.social.email}
-            aria-label="Send Email"
-            className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:text-brand-500 dark:hover:text-brand-400 hover:border-brand-500/40 transition-all"
-          >
-            <Mail className="w-5 h-5" />
-          </a>
-        </motion.div>
+
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('contact');
+              }}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-300 dark:border-[#1D2939] text-slate-600 dark:text-[#98A2B3] hover:text-[#0F172A] dark:hover:text-[#F4F7FA] hover:bg-slate-100 dark:hover:bg-[#101722] font-semibold text-xs transition-colors"
+            >
+              <FileText className="w-4 h-4" />
+              <span>Resume</span>
+            </a>
+          </div>
+
+          {/* Professional Status Line */}
+          <div className="pt-3 flex items-center gap-2 text-xs text-slate-500 dark:text-[#667085]">
+            <span className="w-2 h-2 rounded-full bg-[#22C55E]" />
+            <span>{portfolioData.personal.statusLine}</span>
+          </div>
+        </div>
+
+        {/* Right Column: Clean Code Visual */}
+        <div className="lg:col-span-5">
+          <div className="editorial-card p-4 sm:p-5 font-mono text-xs shadow-subtle overflow-hidden">
+            <div className="flex items-center justify-between border-b border-slate-200 dark:border-[#1D2939] pb-3 mb-4">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700" />
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700" />
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700" />
+              </div>
+              <span className="text-[11px] text-slate-400 dark:text-[#667085]">developer.js</span>
+            </div>
+
+            <div className="space-y-1.5 leading-relaxed text-slate-700 dark:text-[#98A2B3]">
+              <div>
+                <span className="text-purple-600 dark:text-purple-400">const</span>{' '}
+                <span className="text-blue-600 dark:text-blue-400">developer</span> = &#123;
+              </div>
+              <div className="pl-4">
+                <span className="text-slate-500 dark:text-[#667085]">name:</span>{' '}
+                <span className="text-emerald-600 dark:text-emerald-400">"Sumeet Raj"</span>,
+              </div>
+              <div className="pl-4">
+                <span className="text-slate-500 dark:text-[#667085]">focus:</span> [
+                <span className="text-emerald-600 dark:text-emerald-400">"React"</span>,{' '}
+                <span className="text-emerald-600 dark:text-emerald-400">"JavaScript"</span>,{' '}
+                <span className="text-emerald-600 dark:text-emerald-400">"DSA"</span>],
+              </div>
+              <div className="pl-4">
+                <span className="text-slate-500 dark:text-[#667085]">building:</span>{' '}
+                <span className="text-emerald-600 dark:text-emerald-400">"Web Applications"</span>
+              </div>
+              <div>&#125;;</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
 };
+

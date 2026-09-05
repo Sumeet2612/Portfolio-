@@ -17,11 +17,12 @@ export const ScrollProgress = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 h-[3px] bg-transparent z-50 pointer-events-none">
+    <div className="fixed top-0 left-0 right-0 h-[2px] bg-transparent z-50 pointer-events-none">
       <div
-        className="h-full bg-gradient-to-r from-brand-500 to-emerald-400 transition-all duration-150 ease-out"
+        className="h-full bg-[#0284C7] dark:bg-[#22C7E8] transition-all duration-150 ease-out"
         style={{ width: `${progress}%` }}
       />
     </div>
   );
 };
+
