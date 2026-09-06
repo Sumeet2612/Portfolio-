@@ -22,20 +22,23 @@ export const Hero = () => {
   };
 
   return (
-    <section id="home" className="pt-16 pb-20 sm:pt-24 sm:pb-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+    <section id="home" className="relative overflow-hidden bg-blue-500 text-white">
+      <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full border-[32px] border-white/15" />
+      <div className="absolute bottom-[-5rem] left-[-3rem] h-48 w-48 rotate-12 bg-emerald-500/30" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 sm:pt-24 sm:pb-28">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left Column: Personal Intro */}
         <div className="lg:col-span-7 space-y-6">
           <div className="space-y-2">
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A] dark:text-[#F4F7FA]">
+            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-none">
               {portfolioData.personal.name}
             </h1>
-            <p className="text-xl sm:text-2xl font-semibold text-[#0284C7] dark:text-[#22C7E8]">
+            <p className="text-xl sm:text-2xl font-semibold text-amber-300">
               {portfolioData.personal.role}
             </p>
           </div>
 
-          <p className="text-base text-slate-600 dark:text-[#98A2B3] leading-relaxed max-w-xl">
+          <p className="text-base text-blue-50 leading-relaxed max-w-xl">
             {portfolioData.personal.tagline}
           </p>
 
@@ -43,7 +46,7 @@ export const Hero = () => {
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <button
               onClick={() => scrollToSection('projects')}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#0284C7] dark:bg-[#22C7E8] text-white dark:text-[#080B12] font-semibold text-xs hover:opacity-90 transition-opacity cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-md bg-gray-900 text-white font-semibold text-xs hover:bg-gray-800 hover:scale-105 transition-all cursor-pointer"
             >
               <span>View Projects</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -53,19 +56,16 @@ export const Hero = () => {
               href={portfolioData.social.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-300 dark:border-[#1D2939] text-[#0F172A] dark:text-[#F4F7FA] hover:bg-slate-100 dark:hover:bg-[#101722] font-semibold text-xs transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-md border-4 border-white text-white hover:bg-white hover:text-blue-500 font-semibold text-xs transition-all"
             >
               <GithubIcon className="w-4 h-4" />
               <span>GitHub</span>
             </a>
 
             <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('contact');
-              }}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-300 dark:border-[#1D2939] text-slate-600 dark:text-[#98A2B3] hover:text-[#0F172A] dark:hover:text-[#F4F7FA] hover:bg-slate-100 dark:hover:bg-[#101722] font-semibold text-xs transition-colors"
+              href={portfolioData.personal.resumeUrl}
+              download="Sumeet_SDE_Resume.pdf"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-md border-4 border-emerald-300 text-emerald-100 hover:bg-emerald-300 hover:text-gray-900 font-semibold text-xs transition-all"
             >
               <FileText className="w-4 h-4" />
               <span>Resume</span>
@@ -73,7 +73,7 @@ export const Hero = () => {
           </div>
 
           {/* Professional Status Line */}
-          <div className="pt-3 flex items-center gap-2 text-xs text-slate-500 dark:text-[#667085]">
+          <div className="pt-3 flex items-center gap-2 text-xs text-blue-100">
             <span className="w-2 h-2 rounded-full bg-[#22C55E]" />
             <span>{portfolioData.personal.statusLine}</span>
           </div>
@@ -81,7 +81,7 @@ export const Hero = () => {
 
         {/* Right Column: Clean Code Visual */}
         <div className="lg:col-span-5">
-          <div className="editorial-card p-4 sm:p-5 font-mono text-xs shadow-subtle overflow-hidden">
+          <div className="editorial-card p-4 sm:p-5 font-mono text-xs overflow-hidden text-gray-900">
             <div className="flex items-center justify-between border-b border-slate-200 dark:border-[#1D2939] pb-3 mb-4">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700" />
@@ -112,6 +112,7 @@ export const Hero = () => {
               </div>
               <div>&#125;;</div>
             </div>
+          </div>
           </div>
         </div>
       </div>

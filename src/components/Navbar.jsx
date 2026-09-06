@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { portfolioData } from '../data/portfolioData';
-import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sun, Moon } from 'lucide-react';
 
 const GithubIcon = ({ className = "w-3.5 h-3.5" }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -55,7 +55,7 @@ export const Navbar = () => {
           <a
             href="#home"
             onClick={(e) => scrollToSection(e, 'home')}
-            className="font-bold text-sm sm:text-base tracking-tight text-[#0F172A] dark:text-[#F4F7FA] hover:text-[#0284C7] dark:hover:text-[#22C7E8] transition-colors"
+            className="font-extrabold text-sm sm:text-base tracking-tight text-gray-900 dark:text-white hover:text-blue-500 transition-colors"
           >
             Sumeet Raj
           </a>
@@ -71,13 +71,13 @@ export const Navbar = () => {
                   onClick={(e) => scrollToSection(e, item.id)}
                   className={`transition-colors py-1 relative ${
                     isActive
-                      ? 'text-[#0284C7] dark:text-[#22C7E8] font-semibold'
-                      : 'text-slate-600 dark:text-[#98A2B3] hover:text-[#0F172A] dark:hover:text-[#F4F7FA]'
+                      ? 'text-blue-500 font-semibold'
+                      : 'text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                   }`}
                 >
                   {item.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#0284C7] dark:bg-[#22C7E8] rounded-full" />
+                    <span className="absolute bottom-0 left-0 right-0 h-1 bg-blue-500" />
                   )}
                 </a>
               );
@@ -92,7 +92,7 @@ export const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-slate-600 dark:text-[#98A2B3] hover:text-[#0F172A] dark:hover:text-[#F4F7FA] transition-colors px-2 py-1"
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-1"
             >
               <GithubIcon className="w-3.5 h-3.5" />
               <span>GitHub</span>
@@ -100,32 +100,29 @@ export const Navbar = () => {
 
             {/* Resume / Contact Action */}
             <a
-              href="#contact"
-              onClick={(e) => scrollToSection(e, 'contact')}
-              className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded-md bg-[#0F172A] dark:bg-[#F4F7FA] text-white dark:text-[#080B12] hover:bg-slate-800 dark:hover:bg-white transition-colors"
+              href={portfolioData.personal.resumeUrl}
+              download="Sumeet_SDE_Resume.pdf"
+              className="inline-flex items-center gap-1 px-3 py-2 text-xs font-semibold rounded-md bg-blue-500 text-white hover:bg-blue-600 hover:scale-105 transition-all"
             >
               <span>Resume</span>
               <ArrowUpRight className="w-3 h-3" />
             </a>
 
-            {/* Theme Toggle */}
             <button
+              type="button"
               onClick={toggleTheme}
-              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-              className="p-1.5 rounded-md text-slate-600 dark:text-[#98A2B3] hover:bg-slate-200/60 dark:hover:bg-[#1D2939] transition-colors cursor-pointer"
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+              title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-gray-100 text-gray-900 transition-all hover:scale-105 hover:bg-amber-100 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
             >
-              {theme === 'dark' ? (
-                <Sun className="w-4 h-4 text-amber-400" />
-              ) : (
-                <Moon className="w-4 h-4 text-slate-700" />
-              )}
+              {theme === 'dark' ? <Sun className="h-4 w-4 text-amber-400" /> : <Moon className="h-4 w-4" />}
             </button>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle navigation menu"
-              className="md:hidden p-1.5 rounded-md text-slate-600 dark:text-[#98A2B3] hover:bg-slate-200/60 dark:hover:bg-[#1D2939]"
+              className="md:hidden p-1.5 rounded-md text-gray-600 hover:bg-gray-100"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -135,7 +132,7 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-slate-200 dark:border-[#1D2939] bg-[#FAFAFC] dark:bg-[#080B12] px-4 py-4 space-y-3">
+        <div className="md:hidden border-b-4 border-gray-900 bg-white px-4 py-4 space-y-3 dark:border-white dark:bg-gray-950">
           <nav className="flex flex-col space-y-2">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;

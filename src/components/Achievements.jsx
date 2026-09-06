@@ -3,10 +3,10 @@ import { portfolioData } from '../data/portfolioData';
 
 export const Achievements = () => {
   return (
-    <section id="achievements" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-slate-200 dark:border-[#1D2939]">
-      <div className="space-y-8">
+    <section id="achievements" className="bg-amber-500 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto space-y-8">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight text-[#0F172A] dark:text-[#F4F7FA]">
+          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-950">
             Achievements
           </h2>
         </div>
@@ -14,14 +14,14 @@ export const Achievements = () => {
         {portfolioData.achievements.map((item) => (
           <div
             key={item.id}
-            className="editorial-card p-6 sm:p-8 space-y-4 border-l-4 border-l-[#F5A623]"
+            className="bg-white p-6 sm:p-8 space-y-4 rounded-lg border-l-8 border-l-gray-900 dark:bg-gray-900 dark:border-l-gray-950"
           >
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <span className="text-xs font-semibold uppercase tracking-wider text-amber-600 dark:text-[#F5A623]">
                   {item.category}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#0F172A] dark:text-[#F4F7FA] mt-0.5">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mt-0.5">
                   {item.title}
                 </h3>
               </div>
@@ -30,7 +30,7 @@ export const Achievements = () => {
               </span>
             </div>
 
-            <p className="text-sm text-slate-600 dark:text-[#98A2B3] leading-relaxed">
+            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
               {item.description}
             </p>
 

@@ -13,23 +13,23 @@ export const Projects = () => {
   const otherProjects = portfolioData.projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-slate-200 dark:border-[#1D2939]">
-      <div className="space-y-10">
+    <section id="projects" className="bg-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 dark:bg-gray-950">
+      <div className="max-w-7xl mx-auto space-y-10">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight text-[#0F172A] dark:text-[#F4F7FA]">
+          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
             Projects
           </h2>
         </div>
 
         {/* Featured Project Showcase */}
         {featuredProject && (
-          <div className="editorial-card p-6 sm:p-8 space-y-6">
+          <div className="bg-gray-100 p-6 sm:p-8 space-y-6 rounded-lg dark:bg-gray-900">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-[#1D2939] pb-4">
               <div>
                 <span className="text-xs font-semibold uppercase tracking-wider text-[#0284C7] dark:text-[#22C7E8]">
                   Featured Project
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#0F172A] dark:text-[#F4F7FA] mt-0.5">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mt-0.5">
                   {featuredProject.title}
                 </h3>
               </div>
@@ -72,7 +72,7 @@ export const Projects = () => {
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-[#667085]">
                     Built with:
                   </h4>
-                  <p className="text-xs font-mono text-slate-700 dark:text-[#98A2B3]">
+                  <p className="text-xs font-mono text-gray-700 dark:text-gray-300">
                     {featuredProject.tags.join(' · ')}
                   </p>
                 </div>
@@ -81,7 +81,7 @@ export const Projects = () => {
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-[#667085]">
                     Highlights:
                   </h4>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600 dark:text-[#98A2B3]">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-600 dark:text-gray-300">
                     {featuredProject.highlights.map((h, i) => (
                       <li key={i} className="flex items-center gap-2">
                         <Check className="w-3.5 h-3.5 text-[#22C55E] shrink-0" />
@@ -93,21 +93,21 @@ export const Projects = () => {
               </div>
 
               {/* Minimal Project Visual Preview Box */}
-              <div className="lg:col-span-5 editorial-card p-4 bg-slate-50 dark:bg-[#0D121C] border border-slate-200 dark:border-[#1D2939] space-y-3 font-mono text-xs">
+              <div className="lg:col-span-5 bg-gray-900 text-white p-4 rounded-lg space-y-3 font-mono text-xs">
                 <div className="flex items-center justify-between text-slate-400 dark:text-[#667085] pb-2 border-b border-slate-200 dark:border-[#1D2939]">
                   <span>discountEngine.js</span>
                   <span className="text-[10px] text-[#22C55E]">● Active Rules</span>
                 </div>
-                <div className="space-y-2 text-slate-600 dark:text-[#98A2B3] text-[11px]">
-                  <div className="p-2 rounded bg-white dark:bg-[#101722] border border-slate-200 dark:border-[#1D2939] flex justify-between items-center">
+                <div className="space-y-2 text-gray-300 text-[11px]">
+                  <div className="p-2 rounded bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 flex justify-between items-center">
                     <span>COUPON: BOGO2025</span>
                     <span className="text-[#22C55E]">Applied</span>
                   </div>
-                  <div className="p-2 rounded bg-white dark:bg-[#101722] border border-slate-200 dark:border-[#1D2939] flex justify-between items-center">
+                  <div className="p-2 rounded bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 flex justify-between items-center">
                     <span>MIN_CART_THRESHOLD</span>
                     <span>Passed</span>
                   </div>
-                  <div className="p-2 rounded bg-white dark:bg-[#101722] border border-slate-200 dark:border-[#1D2939] flex justify-between items-center">
+                  <div className="p-2 rounded bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 flex justify-between items-center">
                     <span>STACKABLE_RULE</span>
                     <span className="text-amber-500">Enforced</span>
                   </div>
@@ -120,10 +120,10 @@ export const Projects = () => {
         {/* Other Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {otherProjects.map((project) => (
-            <div key={project.id} className="editorial-card p-6 flex flex-col justify-between space-y-4">
+            <div key={project.id} className="bg-blue-50 p-6 rounded-lg flex flex-col justify-between space-y-4 transition-transform duration-200 hover:scale-[1.02] dark:bg-blue-950">
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-bold text-[#0F172A] dark:text-[#F4F7FA]">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">
                     {project.title}
                   </h3>
                 </div>

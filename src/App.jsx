@@ -14,7 +14,7 @@ import { Footer } from './components/Footer';
 export function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-[#FAFAFC] dark:bg-[#080B12] text-[#0F172A] dark:text-[#F4F7FA] transition-colors duration-200 relative selection:bg-[#0284C7] dark:selection:bg-[#22C7E8] selection:text-white dark:selection:text-[#080B12]">
+      <div className="min-h-screen bg-white text-gray-900 relative selection:bg-blue-500 selection:text-white dark:bg-gray-950 dark:text-gray-100">
         <ScrollProgress />
         <Navbar />
         <main>

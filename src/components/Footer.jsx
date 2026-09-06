@@ -3,10 +3,11 @@ import { portfolioData } from '../data/portfolioData';
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-slate-200 dark:border-[#1D2939] py-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-[#667085]">
+    <footer className="bg-gray-900 text-white py-8 px-4 sm:px-6 lg:px-8 dark:bg-black">
+      <div className="max-w-7xl mx-auto">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-300">
         <div>
-          <span className="font-semibold text-[#0F172A] dark:text-[#F4F7FA]">
+          <span className="font-semibold text-white">
             {portfolioData.personal.name}
           </span>{' '}
           · {portfolioData.personal.role}
@@ -17,7 +18,7 @@ export const Footer = () => {
             href={portfolioData.social.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#0F172A] dark:hover:text-[#F4F7FA] transition-colors"
+            className="hover:text-white transition-colors"
           >
             GitHub
           </a>
@@ -25,7 +26,7 @@ export const Footer = () => {
             href={portfolioData.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#0F172A] dark:hover:text-[#F4F7FA] transition-colors"
+            className="hover:text-white transition-colors"
           >
             LinkedIn
           </a>
@@ -33,13 +34,13 @@ export const Footer = () => {
             href={portfolioData.social.leetcode}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#0F172A] dark:hover:text-[#F4F7FA] transition-colors"
+            className="hover:text-white transition-colors"
           >
             LeetCode
           </a>
           <a
             href={portfolioData.social.email}
-            className="hover:text-[#0F172A] dark:hover:text-[#F4F7FA] transition-colors"
+            className="hover:text-white transition-colors"
           >
             Email
           </a>
@@ -48,6 +49,7 @@ export const Footer = () => {
         <div>
           © 2026 {portfolioData.personal.name}. Built with React.
         </div>
+      </div>
       </div>
     </footer>
   );

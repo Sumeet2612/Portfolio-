@@ -52,13 +52,13 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-slate-200 dark:border-[#1D2939]">
-      <div className="space-y-8">
+    <section id="contact" className="bg-blue-500 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto space-y-8">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight text-[#0F172A] dark:text-[#F4F7FA]">
+          <h2 className="text-3xl font-extrabold tracking-tight text-white">
             Let's build something.
           </h2>
-          <p className="text-sm text-slate-600 dark:text-[#98A2B3] mt-1">
+          <p className="text-sm text-blue-50 mt-1">
             I'm currently open to software engineering, frontend and full-stack opportunities.
           </p>
         </div>
@@ -66,15 +66,15 @@ export const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: Direct Links */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="editorial-card p-5 space-y-4">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-[#667085]">
+            <div className="bg-gray-900 text-white p-5 space-y-4 rounded-lg dark:bg-gray-950">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-300 dark:text-gray-400">
                 Direct Links
               </h3>
 
               <div className="space-y-3 text-xs sm:text-sm">
                 <a
                   href={portfolioData.social.email}
-                  className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-[#0D121C] text-slate-700 dark:text-[#98A2B3] hover:text-[#0F172A] dark:hover:text-[#F4F7FA] transition-colors"
+                    className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-800 text-gray-200 dark:text-gray-300 hover:text-white transition-colors"
                 >
                   <Mail className="w-4 h-4 text-[#0284C7] dark:text-[#22C7E8] shrink-0" />
                   <span className="truncate">{portfolioData.personal.email}</span>
@@ -84,7 +84,7 @@ export const Contact = () => {
                   href={portfolioData.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-[#0D121C] text-slate-700 dark:text-[#98A2B3] hover:text-[#0F172A] dark:hover:text-[#F4F7FA] transition-colors"
+                    className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-800 text-gray-200 dark:text-gray-300 hover:text-white transition-colors"
                 >
                   <Link className="w-4 h-4 text-[#0284C7] dark:text-[#22C7E8] shrink-0" />
                   <span>LinkedIn / sumeet-kumar-raj</span>
@@ -94,7 +94,7 @@ export const Contact = () => {
                   href={portfolioData.social.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-[#0D121C] text-slate-700 dark:text-[#98A2B3] hover:text-[#0F172A] dark:hover:text-[#F4F7FA] transition-colors"
+                    className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-800 text-gray-200 dark:text-gray-300 hover:text-white transition-colors"
                 >
                   <GitFork className="w-4 h-4 text-[#0284C7] dark:text-[#22C7E8] shrink-0" />
                   <span>GitHub / Sumeet2612</span>
@@ -104,10 +104,10 @@ export const Contact = () => {
                   href={portfolioData.social.leetcode}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-[#0D121C] text-slate-700 dark:text-[#98A2B3] hover:text-[#0F172A] dark:hover:text-[#F4F7FA] transition-colors"
+                    className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-800 text-gray-200 dark:text-gray-300 hover:text-white transition-colors"
                 >
                   <Code className="w-4 h-4 text-[#0284C7] dark:text-[#22C7E8] shrink-0" />
-                  <span>LeetCode / Sumeet2612</span>
+                  <span>LeetCode / {portfolioData.codingProfiles.leetcode.username}</span>
                 </a>
               </div>
             </div>
@@ -115,7 +115,7 @@ export const Contact = () => {
 
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
-            <form onSubmit={handleSubmit} className="editorial-card p-6 space-y-4" noValidate>
+            <form onSubmit={handleSubmit} className="bg-white p-6 space-y-4 rounded-lg dark:bg-gray-900" noValidate>
               {status.submitted && (
                 <div className="p-3 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-[#22C55E] text-xs font-medium flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 shrink-0" />
@@ -204,7 +204,7 @@ export const Contact = () => {
               <button
                 type="submit"
                 disabled={status.submitting}
-                className="w-full py-2.5 rounded-md bg-[#0284C7] dark:bg-[#22C7E8] text-white dark:text-[#080B12] font-semibold text-xs transition-opacity hover:opacity-90 flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3 rounded-md bg-emerald-500 text-white font-semibold text-xs transition-all hover:bg-emerald-600 hover:scale-[1.02] flex items-center justify-center gap-2 cursor-pointer"
               >
                 {status.submitting ? (
                   <>

@@ -1,3 +1,5 @@
+import resumeUrl from '../Sumeet_SDE_Resume.pdf';
+
 export const portfolioData = {
   personal: {
     name: "Sumeet Kumar Raj",
@@ -15,13 +17,14 @@ export const portfolioData = {
     ],
     location: "India",
     email: "sumeetkumarraj2612@gmail.com",
+    resumeUrl,
     contactFormEndpoint: "", // Configurable endpoint (Formspree / EmailJS)
   },
   social: {
     github: "https://github.com/Sumeet2612",
     linkedin: "https://www.linkedin.com/in/sumeet-kumar-raj-d7b8/",
-    leetcode: "https://leetcode.com/u/Sumeet2612/",
-    leetcodeHandle: "Sumeet2612",
+    leetcode: "https://leetcode.com/u/Sumeet_1226/",
+    leetcodeHandle: "Sumeet_1226",
     email: "mailto:sumeetkumarraj2612@gmail.com"
   },
   skills: [
@@ -117,8 +120,8 @@ export const portfolioData = {
       tagline: "Open-source repositories, project commits, and frontend codebases."
     },
     leetcode: {
-      username: "Sumeet2612",
-      url: "https://leetcode.com/u/Sumeet2612/",
+      username: "Sumeet_1226",
+      url: "https://leetcode.com/u/Sumeet_1226/",
       tagline: "Regular problem solving in Data Structures & Algorithms."
     }
   }

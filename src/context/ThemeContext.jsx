@@ -4,17 +4,11 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    // 1. Check local storage
     const savedTheme = localStorage.getItem('portfolio-theme');
     if (savedTheme === 'dark' || savedTheme === 'light') {
       return savedTheme;
     }
-    // 2. Check system preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-      return 'light';
-    }
-    // 3. Default to dark mode
-    return 'dark';
+    return 'light';
   });
 
   useEffect(() => {
@@ -30,7 +24,7 @@ export const ThemeProvider = ({ children }) => {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
+    setTheme((currentTheme) => (currentTheme === 'dark' ? 'light' : 'dark'));
   };
 
   return (

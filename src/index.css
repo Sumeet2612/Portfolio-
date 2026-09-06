@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,12 +7,20 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Outfit', sans-serif;
   }
   
   body {
-    @apply bg-[#FAFAFC] dark:bg-[#080B12] text-[#0F172A] dark:text-[#F4F7FA] transition-colors duration-200 antialiased;
+    @apply bg-white text-gray-900 antialiased dark:bg-gray-950 dark:text-gray-100;
   }
+}
+
+:root {
+  --color-ink: #111827;
+  --color-blue: #3b82f6;
+  --color-emerald: #10b981;
+  --color-amber: #f59e0b;
+  --color-muted: #f3f4f6;
 }
 
 /* Custom subtle scrollbar */
@@ -23,15 +33,19 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-300 dark:bg-[#1D2939] rounded hover:bg-slate-400 dark:hover:bg-[#344054] transition-colors;
+  @apply bg-gray-300 hover:bg-blue-500 transition-colors;
 }
 
-/* Clean Editorial Components */
 .editorial-card {
-  @apply bg-white dark:bg-[#101722] border border-slate-200 dark:border-[#1D2939] rounded-xl transition-all duration-200;
+  @apply bg-white rounded-lg transition-all duration-200 dark:bg-gray-900;
 }
 
 .editorial-nav {
-  @apply bg-[#FAFAFC]/90 dark:bg-[#080B12]/90 backdrop-blur-md border-b border-slate-200 dark:border-[#1D2939];
+  @apply bg-white border-b-4 border-gray-900 dark:bg-gray-950 dark:border-white;
+}
+
+button,
+a {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
 }
 
